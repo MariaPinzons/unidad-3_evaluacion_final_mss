@@ -1,3 +1,19 @@
+# Changelog
+
+## [1.1.0] - 2026-04-14
+### Added
+- Nueva columna `genero` en la tabla `artistas` de la base de datos MariaDB.
+- Nuevos datos en la tabla `artistas`y cambio de color de fondo.
+- se incluye visualmente la version de la app en el index.
+- Visualización del Género Musical en la tabla de la interfaz web.
+- Modelo de datos actualizado en FastAPI para soportar el nuevo campo.
+- Implementación de visualización de popularidad mediante barras de progreso.
+
+### Changed
+- Actualizada la versión de la aplicación a `1.1.0` en el objeto `FastAPI`.
+
+---
+
 # Evaluación final unidad 3 - v1.0.0
 ## Uniagustiniana 2026
 **Estado:** Stable

@@ -5,7 +5,12 @@ import mariadb
 import os
 import time
 
-app = FastAPI()
+# 1. ACTUALIZACIÓN DE VERSIÓN: Requisito obligatorio para el Changelog
+app = FastAPI(
+    title="Billboard Uniagustiniana",
+    version="1.1.0", 
+    description="Evolución del sistema de ranking de artistas"
+)
 # Asegúrate de que la ruta coincida con tu estructura de carpetas
 templates = Jinja2Templates(directory="templates")
 
@@ -43,14 +48,21 @@ async def leer_vista(request: Request):
         )
 
     try:
+        # Usamos dictionary=True para que en el HTML podamos usar {{ artista.genero }}
         cursor = conexion.cursor(dictionary=True)
+
+        # 2. VERIFICACIÓN DE CONSULTA: 
+        # Al usar SELECT *, ya traemos: id, nombre, genero, ultimo_exito, popularidad
         # Consulta para el ranking de popularidad
         cursor.execute("SELECT * FROM artistas ORDER BY popularidad DESC LIMIT 10")
         datos = cursor.fetchall()
+
         return templates.TemplateResponse(
             request=request,
             name="index.html",
-            context={"artistas": datos}
+            context={"artistas": datos,
+                     "version": app.version # Pasamos la versión a la vista
+                    }
         )
     except mariadb.Error as e:
         return HTMLResponse(content=f"<h1>Error en la consulta: {e}</h1>", status_code=500)

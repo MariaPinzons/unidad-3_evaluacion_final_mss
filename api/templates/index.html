@@ -6,7 +6,8 @@
     <title>Billboard UNIAGUSTINIANA - Top 10</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#002855] text-slate-100 min-h-screen font-sans">
+<body class="bg-[#00254F] text-slate-100 min-h-screen font-sans">
+    <!--<body class="bg-[#002855] text-slate-100 min-h-screen font-sans">-->
     <div class="max-w-3xl mx-auto py-12 px-4">
         <header class="text-center mb-12">
             <h1 class="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#C5A059] to-white uppercase tracking-tighter">
@@ -38,7 +39,7 @@
                         {{ art.genero | upper }}
                     </span>
                     <div class="w-24 bg-slate-800 h-1.5 rounded-full mt-1 overflow-hidden">
-                        <div class="bg-[#C5A059] h-full" style="width: {{ art.popularidad }}%"></div>
+                        <div class="bg-[#C5A059] h-full" style="width: {{ art.popularidad or 0 }}%"></div>
                     </div>
                 </div>
             </div>
@@ -47,7 +48,9 @@
 
         <footer class="mt-16 text-center text-slate-400">
             <div class="inline-block p-4 border-t border-[#C5A059]/30">
-                <p class="text-xs font-mono uppercase">Mantenimiento de Sistemas de Software -  Uniagustiniana(2026): Solución basada en Nginx -> (Vista) → FastAPI → MariaDB</p>
+                <p class="text-[10px] font-mono mb-2 text-[#C5A059]">SISTEMA V{{ version }}</p>
+                <p class="text-xs font-mono uppercase">Mantenimiento de Sistemas de Software - Uniagustiniana(2026)</p>
+                <p class="text-[9px] mt-1 text-slate-500">Solución basada en Nginx (Vista) → FastAPI → MariaDB</p>
             </div>
         </footer>
     </div>

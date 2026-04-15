@@ -4,9 +4,9 @@ USE academia_agustiniana_db;
 
 CREATE TABLE IF NOT EXISTS artistas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100),
-    genero VARCHAR(50),
-    ultimo_exito VARCHAR(100),
+    nombre VARCHAR(100) NOT NULL,
+    genero VARCHAR(50) NOT NULL,
+    ultimo_exito VARCHAR(100) NOT NULL,
     popularidad INT
 );
 
@@ -20,4 +20,6 @@ INSERT INTO artistas (nombre, genero, ultimo_exito, popularidad) VALUES
 ('Ryan Castro', 'Reguetón', 'Quema', 89),
 ('Jhonny Rivera', 'Popular', 'Te extraño', 88),
 ('Blessd', 'Reguetón', 'Si Sabe Ferxxo', 95),
-('Paola Jara', 'Popular', 'Murió el Amor', 87);
+('Paola Jara', 'Popular', 'Murió el Amor', 87),
+('Bad Bunny', 'Reguetón', 'NUEVAYol', 97),
+('J Balvin', 'Reguetón', 'Rio', 92);
